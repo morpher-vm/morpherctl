@@ -5,6 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"morpherctl/cmd/config"
 	"morpherctl/cmd/version"
 )
 
@@ -27,4 +28,5 @@ func init() {
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 
 	rootCmd.AddCommand(version.VersionCmd)
+	rootCmd.AddCommand(config.ConfigCmd)
 }
