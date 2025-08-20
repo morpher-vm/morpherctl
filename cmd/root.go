@@ -5,6 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"morpherctl/cmd/completion"
 	"morpherctl/cmd/config"
 	"morpherctl/cmd/controller"
 	"morpherctl/cmd/version"
@@ -31,4 +32,5 @@ func init() {
 	rootCmd.AddCommand(version.VersionCmd)
 	rootCmd.AddCommand(config.ConfigCmd)
 	rootCmd.AddCommand(controller.ControllerCmd)
+	rootCmd.AddCommand(completion.CompletionCmd)
 }
