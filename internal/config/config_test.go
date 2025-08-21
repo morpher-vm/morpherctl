@@ -71,9 +71,13 @@ func TestManager_Init(t *testing.T) {
 		manager = NewManager(configFile)
 
 		// Test default values.
-		url, err := manager.GetString("controller.url")
+		ip, err := manager.GetString("controller.ip")
 		require.NoError(t, err)
-		assert.Equal(t, "http://localhost:8080", url)
+		assert.Equal(t, "localhost", ip)
+
+		port, err := manager.Get("controller.port")
+		require.NoError(t, err)
+		assert.Equal(t, 9000, port)
 
 		timeout, err := manager.GetDuration("controller.timeout")
 		require.NoError(t, err)
@@ -188,9 +192,9 @@ func TestManager_GetString(t *testing.T) {
 	require.NoError(t, err)
 
 	t.Run("should return string value", func(t *testing.T) {
-		url, err := manager.GetString("controller.url")
+		ip, err := manager.GetString("controller.ip")
 		require.NoError(t, err)
-		assert.Equal(t, "http://localhost:8080", url)
+		assert.Equal(t, "localhost", ip)
 	})
 
 	t.Run("should return empty string for non-existent key", func(t *testing.T) {

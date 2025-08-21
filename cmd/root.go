@@ -5,6 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"morpherctl/cmd/agent"
 	"morpherctl/cmd/completion"
 	"morpherctl/cmd/config"
 	"morpherctl/cmd/controller"
@@ -29,6 +30,7 @@ func Execute() {
 func init() {
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 
+	rootCmd.AddCommand(agent.AgentCmd)
 	rootCmd.AddCommand(version.VersionCmd)
 	rootCmd.AddCommand(config.ConfigCmd)
 	rootCmd.AddCommand(controller.ControllerCmd)

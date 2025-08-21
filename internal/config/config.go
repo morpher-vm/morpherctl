@@ -53,7 +53,8 @@ func (m *Manager) Init() error {
 	}
 
 	// Set default configuration values.
-	viper.SetDefault("controller.url", "http://localhost:8080")
+	viper.SetDefault("controller.ip", "localhost")
+	viper.SetDefault("controller.port", 9000)
 	viper.SetDefault("controller.timeout", "30s")
 	viper.SetDefault("auth.token", "")
 	viper.SetDefault("auth.refresh_token", "")
